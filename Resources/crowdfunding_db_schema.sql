@@ -4,25 +4,25 @@
 
 CREATE TABLE "Contacts" (
     "contact_id" int   NOT NULL,
-    "first_name" string   NOT NULL,
-    "last_name" string   NOT NULL,
-    "email" string   NOT NULL,
+    "first_name" varchar(150) NOT NULL,
+    "last_name" varchar(150)   NOT NULL,
+    "email" varchar(150)   NOT NULL,
     CONSTRAINT "pk_Contacts" PRIMARY KEY (
         "contact_id"
      )
 );
 
 CREATE TABLE "Category" (
-    "category_id" string   NOT NULL,
-    "category" string   NOT NULL,
+    "category_id" varchar(150)   NOT NULL,
+    "category" varchar(150)  NOT NULL,
     CONSTRAINT "pk_Category" PRIMARY KEY (
         "category_id"
      )
 );
 
 CREATE TABLE "Subcategory" (
-    "subcategory_id" string   NOT NULL,
-    "subcategory" string   NOT NULL,
+    "subcategory_id" varchar(150)  NOT NULL,
+    "subcategory" varchar(150)   NOT NULL,
     CONSTRAINT "pk_Subcategory" PRIMARY KEY (
         "subcategory_id"
      )
@@ -31,18 +31,18 @@ CREATE TABLE "Subcategory" (
 CREATE TABLE "Campaign" (
     "cf_id" int   NOT NULL,
     "contact_id" int   NOT NULL,
-    "company_name" string   NOT NULL,
-    "description" string   NOT NULL,
-    "goal" double   NOT NULL,
-    "pledge" double   NOT NULL,
-    "outcome" string   NOT NULL,
+    "company_name" varchar(150)   NOT NULL,
+    "description" varchar(150)  NOT NULL,
+    "goal" double precision  NOT NULL,
+    "pledge" double precision  NOT NULL,
+    "outcome" varchar(150)   NOT NULL,
     "backers_count" int   NOT NULL,
-    "country" string   NOT NULL,
-    "currency" string   NOT NULL,
+    "country" varchar(150)   NOT NULL,
+    "currency" varchar(150)  NOT NULL,
     "launched_date" date   NOT NULL,
     "end_date" date   NOT NULL,
-    "category_id" string   NOT NULL,
-    "subcategory_id" string   NOT NULL,
+    "category_id" varchar(150)   NOT NULL,
+    "subcategory_id" varchar(150)   NOT NULL,
     CONSTRAINT "pk_Campaign" PRIMARY KEY (
         "cf_id"
      )
@@ -57,7 +57,7 @@ REFERENCES "Category" ("category_id");
 ALTER TABLE "Campaign" ADD CONSTRAINT "fk_Campaign_subcategory_id" FOREIGN KEY("subcategory_id")
 REFERENCES "Subcategory" ("subcategory_id");
 
-select * from contacts
-select * from category
-select * from subcategory
-select * from campaign
+select * from "Contacts"
+select * from "Category"
+select * from "Subcategory"
+select * from "Campaign"
